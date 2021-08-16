@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="preload" href="/images/favicon.png" as="image" media="max-width:40px">
+		<link rel="preload" as="script" href="https://kit.fontawesome.com/2b1b549722.js"  crossorigin="anonymous">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+		<link href="/styles/oCV.css" rel="stylesheet">
+		<title>J.D Vivian - My CV</title>
+	</head>
+	<body>
+		<main>
+			<div class="d-flex flex-column flex-shrink-0 sidebar" style="width: 4.5rem;">
+				<a href="/" class="d-block p-3 link-dark text-decoration-none" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+				<img src="/images/favicon.png" style="width: 40px; height: auto; margin-left: 2%;">
+				</a>
+				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+					<li class="nav-item">
+						<a  class="nav-link py-3 border-bottom border-top about-me"  aria-current="page" title="About Me" data-bs-trigger="hover" data-bs-toggle="tooltip" data-bs-placement="right">
+						<i class="fas side-icon fa-address-card"></i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a  class="nav-link py-3 active border-bottom my-cv"  title="My CV" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right">
+						<i class="fas side-icon fa-file-contract"></i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a  class="nav-link py-3 border-bottom coding-projects"  title="My Coding Projects" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right">
+						<i class="fas side-icon fa-code"></i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link py-3 border-bottom download-cv" title="Download" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right">
+						<i class="fas side-icon fa-download"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="divider"></div>
+			<div class="content" style="width:100%; overflow-x: hidden;">
+				<div class="container" style="margin-top: 2%; width:100%;">
+					<div class="row" style="margin-left:-25rem;">
+						<div class="col-md-3" >
+							<h3 class="oCV-Title">Professional Summary</h3>
+							<img src="/images/profile.jpg" class="rounded-circle" style="margin-left:25%; width:150px;">
+							<div class="oCV-Section" style="margin-top: 5%;">
+								<h4>Joel Vivian</h4>
+								<p class="subtext"><em>I am a highly ambitious 2nd year computer science student at the University of Liverpool, with a desire to learn new skills and code new and exciting things. My previous experience is with in-person, phone, and remote IT support, both in the context of general IT support, as well as specific applications. I also have experience in helping in the IT recovery from a cyber-attack on a multinational company.</em></p>
+							</div>
+							<h3  style= "margin-top: 6rem;" class="oCV-Title">Skills</h3>
+							<div class="oCV-Section">
+								<ul class="subtext">
+									<li>Active Directory</li>
+									<li>Azure Active Directory</li>
+									<li>Windows Server 2008-2019</li>
+									<li>Windows Deployment Services</li>
+									<li>Remote Desktop Services</li>
+									<li>Windows (XP-11)</li>
+									<li>Linux (Ubuntu, Debian, Fedora)</li>
+									<li>MacOS & iOS</li>
+									<li>Android</li>
+									<li>Java</li>
+									<li>HTML, CSS & JavaScript</li>
+									<li>Python</li>
+									<li>Computer Hardware</li>
+									<li>Zoho Desk, Zendesk</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<h3 class="oCV-Title">Education</h3>
+							
+							<%
+								for(i=Education.length-1; i>-1; i--){ %>
+									<div class="oCV-Section">
+										<h4><%- Education[i].educationLevel %></h4>
+										<h5><%- Education[i].dateRange %></h5>
+										<p><em><%- Education[i].placeName %></em></p>
+										<div class="subtext">
+													<% 
+														var eduGrades = Education[i].grades
+														for(j=0; j<eduGrades.length; j++){%>
+															<div class="row">
+																<div class="col-lg-10">
+																	&ThickSpace;&ThickSpace;<%- eduGrades[j].Subject %>
+																</div>
+
+																<div class="col">
+																	&ThickSpace;&ThickSpace;<%- eduGrades[j].Grade %>
+																</div>
+													
+															</div>
+													<% } %>	
+										</div>
+									</div>
+								<% } %> 
+							
+						</div>
+						<div class="col-md-3">
+							<h3 class="oCV-Title">Work History</h3>
+							<%
+								for(i=workHistory.length-1; i>-1; i--){%>
+							<div class="oCV-Section">
+								<h4><%- workHistory[i].jobTitle %></h4>
+								<h5><%- workHistory[i].dateRange %></h5>
+								<p><em><%- workHistory[i].placeName %></em></p>
+								<p class="subtext"><%- workHistory[i].desc %>
+								</p>
+							</div>
+							<%
+								if(i==3){ %>
+								</div>
+								<div class="col-md-3" style="margin-top: 2.45rem;">
+								
+								<% } %>
+								
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--Scripts-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/2b1b549722.js" crossorigin="anonymous"></script>
+		<script src="/scripts/cvLd.js"></script>
+	</body>
+</html>
+
+

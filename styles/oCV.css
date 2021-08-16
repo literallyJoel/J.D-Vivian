@@ -61,7 +61,7 @@ main {
 .content{
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
-  /*display: none;*/
+  display: none;
 }
 .oCV-Section {
   padding: 0 0 5% 5%;

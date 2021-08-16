@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dbTest</title>
+  </head>
+  <body>
+    <h1>dbTest</h1>
+    
+     <ul>
+      <%
+        var list = '';
+        for (i = 0; i < dbTest.length; i++) {
+          list += '<li>' + dbTest[i].dateRange + '</li>';
+        }
+      %>
+      <%- list %>
+    </ul>
+  </body>
+</html>

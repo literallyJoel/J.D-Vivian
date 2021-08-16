@@ -10,10 +10,8 @@ $(function () {
 function loadContent() {
    
 
-    if (window.location.hash == "#cv") {
-        loadOnlineCV();
-        return;
-    }else if(window.location.hash=="#about"){
+    
+    if(window.location.hash=="#about"){
         loadAbout();
         return;
     }else if(window.location.hash=="#projects"){
@@ -28,21 +26,6 @@ function loadContent() {
 }
 
 
-function loadOnlineCV(){
-  
-    $(".active").removeClass("active");
-    $(".my-cv").addClass("active");
-    document.title = "J.D Vivian - My CV";
-
-    $(".content").fadeOut(300, function(){
-        $(this).css("background-color", "white");
-        $(this).load("/pages/CV/cv.html", function(){
-            $(this).fadeIn(300);
-        });
-    })
- 
-  
-}
 
 function loadAbout(){
   
@@ -90,7 +73,14 @@ function loadDownload(){
 
 }
 $(".my-cv").click(function(){
-    window.location.href="#cv";
+    $(".active").removeClass("active");
+    $(".my-cv").addClass("active");
+    document.title = "J.D Vivian - My CV";
+
+    $(".content").fadeOut(300, function(){
+        window.location.href ="cv"
+    })
+  
 });
 
 $(".about-me").click(function(){
@@ -109,7 +99,7 @@ $(".download-cv").click(function(){
   
 });
 
-
+//tooltips
 (function () {
     'use strict'
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
