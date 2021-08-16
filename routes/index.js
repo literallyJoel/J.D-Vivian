@@ -21,7 +21,7 @@ router.get('/start', (req, res)=>{
 })
 
 
-//DBTest
+//Render online CV, connecting to the mongoDB
 router.get('/oCV/cv', function(req, res) {
   var db = req.db;
   EducationColl = db.get('Education');

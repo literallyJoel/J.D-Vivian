@@ -5,9 +5,12 @@ const https = require("https");
 const fs = require("fs");
 const app = express();
 const monk = require('monk');
+//imports credentials from gitignored file
 import {dbAuth} from "./mauth.js";
+import { router as errorRouter } from './routes/error.js';
+//builds connection string with imported vars
 var conString = dbAuth.user + ':' + dbAuth.pass + '@127.0.0.1:27017/oCV'
-console.log(conString);
+//connect with monk
 const db = monk(conString, {authSource: 'admin'});
 
 db.then(() =>{
@@ -43,7 +46,7 @@ app.set('views', 'views');
 app.use(express.urlencoded({ extended: false }));
 
 
-//app.use(express.static('public')); //ignore to allow for / route
+
 app.use(express.json({ limit: '1mb' }));
 
 //Routes
@@ -53,7 +56,7 @@ app.use(function(req,res,next){
 });
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use(errorRouter);
 
 
 

@@ -1,6 +1,8 @@
+//When you load the page it'll runb load content
 $(function () {
 	loadContent();
 
+    //if you change the page hash (ie 'jdvivian.co.uk/oCV#about to jdvivian.co.uk/oCV#download) it'll run loadContent();
 	window.onhashchange = () => {
 		loadContent();
 	};
@@ -9,7 +11,7 @@ $(function () {
 
 function loadContent() {
    
-
+    //This checks the hash and loads the appropriate page
     
     if(window.location.hash=="#about"){
         loadAbout();
@@ -26,7 +28,7 @@ function loadContent() {
 }
 
 
-
+//Sets the background colour correctly, fades the content div out, loads the new content, and then fades it back in
 function loadAbout(){
   
     $(".active").removeClass("active");
@@ -43,7 +45,7 @@ function loadAbout(){
  
 }
 
-
+//all the loadX(); methods work the same
 function loadDankins(){
 
 
@@ -72,6 +74,10 @@ function loadDownload(){
     })
 
 }
+
+//This one works differently and actually changes the entie page
+//rather than just loading content into a div
+//This is because loading into a div with the EJS would have been difficult.
 $(".my-cv").click(function(){
     $(".active").removeClass("active");
     $(".my-cv").addClass("active");
@@ -99,7 +105,7 @@ $(".download-cv").click(function(){
   
 });
 
-//tooltips
+//Makes the sidebar tooltips work (thanks to the bootstrap toolbar exampels for this one)
 (function () {
     'use strict'
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

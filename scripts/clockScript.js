@@ -1,3 +1,4 @@
+//This just does the fun lil hex code clock on the start page
 function intToHex(i) {
    var hex = ("0" + (Number(i).toString(16))).slice(-2).toUpperCase();
    return hex;
